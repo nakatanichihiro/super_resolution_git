@@ -1,0 +1,41 @@
+<!-- 親テンプレートを読み込む-->
+{% extends 'ai/base.html' %}
+{% load static %}
+{% block content %}
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/resolution.css' %}">
+</head>
+<div id="wrapper">
+<h1>超解像 (Super-resolution)</h1>
+<form action="{% url 'ai:doResolution'%}" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+
+<div style="margin-top: 30px;">
+    <h4>拡大率の設定 (Decide magnification)</h4>
+    <input type="radio" name="magnification_rate" multiple value="2"> 2倍
+    <input type="radio" name="magnification_rate" multiple value="4" checked> 4倍
+    <input type="radio" name="magnification_rate" multiple value="8"> 8倍
+
+</div>
+<div style="margin-top: 20px;">
+    <h4>画像のアップロード (Upload image)</h4>
+    <input type="file" name="file" multiple>
+</div>
+<div style="margin-top: 10px;">
+	<input type="submit" class="btn  btn-info submit" value="実行">
+</div>
+</form>
+
+
+<div class="alert alert-success" role="alert" style="margin-top:10px;">
+	<h5><font color="black">実行には10～20秒程度かかります。(うまくいかないときは何度かお試しください)<br></font> </h5>
+</div>
+
+
+{% if message %}
+<div class="alert alert-danger" role="alert" style="margin-top:10px;">
+<h4><font color="red">{{message}}<br></font> </h4>
+</div>
+{% endif %}
+</div>
+{% endblock content %}

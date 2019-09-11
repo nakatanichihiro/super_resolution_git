@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{# Bootstrap4を使う #}
+<!-- linkタグでbootstrapのcssファイルを読み込む -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- linkタグでcommon.cssファイルを読み込む -->
+<link rel="stylesheet" href="{% static 'css/common.css' %}">
+<!-- タイトルの設定-->
+<title>Super-Resolution</title>
+<meta content="豊田工業大学知能情報メディア研究室のホームページです。研究成果等を掲載しております。ディープラーニングによる超解像を画像をアップロードするだけで体感できます。" name="description">
+<body>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'ai:top' %}">Top</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ai:resolution' %}">超解像実行</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ai:resolution_example' %}">超解像実行例</a>
+                </li>
+
+            </ul>
+        </div>
+</nav>
+
+<div class="main">
+{% block content %}
+{% endblock %}
+</div>
+
+<footer>
+<div>
+	<p>
+	<研究内容について><br>
+	豊田工業大学 知能情報メディア研究室<br>
+	Intelligent Information Lab, Toyota Technological Institute (TTI-J)<br>
+	浮田宗伯 (Norimichi Ukita)<br>
+	Mail: ukita@toyota-ti.ac.jp<br>
+	Phone: 052-809-1832<br><br>
+	〒468-8511<br>
+	Address: 名古屋市天白区久方2-12-1<br>
+	Room：North Tower N314<br>
+	<a href="https://www.toyota-ti.ac.jp/access/index.html" target="_blank">ACCESS</a><br>
+	</p>
+</div>
+</footer>
+
+<!-- bootstrapのjavascrit読み込み-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</body>
+</html>
