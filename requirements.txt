@@ -50,6 +50,6 @@ sqlparse==0.3.0
 Transcrypt==3.7.16
 typed-ast==1.4.0
 typing-extensions==3.7.4
-urllib3==1.25.3
+urllib3==1.26.5
 whichcraft==0.6.0
 utils==0.9.0
